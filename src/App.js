@@ -87,6 +87,19 @@ import './style.css';
 //     [<h1>s1</h1>,<h1>s3</h1>]}</div>
 // }
 
+// export default function App() {
+//   const students = ['s1', 's2', 's3'];
+//   const studentselements = [];
+//   for (let i = 0; i < students.length; i++) {
+//     studentselements.push(<h1>{students[i]}</h1>);
+//   }
+  
+//   return <div>{studentselements}</div>;
+
+// }
+
+
+
 export default function App() {
   const students = ['s1', 's2', 's3'];
   const studentselements = [];
