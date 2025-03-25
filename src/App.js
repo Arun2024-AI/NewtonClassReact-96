@@ -113,8 +113,38 @@ import './style.css';
 
 
 
-const arrOfstr = ['mango', 'orange', 'apple', 'hello'];
+// const arrOfstr = ['mango', 'orange', 'apple', 'hello'];
+// export default function App() {
+//   const arr = arrOfstr.map((str) => <h2>{str}</h2>);
+//   return <div className="App">{arr}</div>;
+// }
+
+
+// export default function App() {
+//   return (
+//     <div>
+//       <button onclick = {() => 
+//        alert ("Button Click")} >Click Me</button>
+//     </div>
+//   );
+// }
+
+
+
+
 export default function App() {
-  const arr = arrOfstr.map((str) => <h2>{str}</h2>);
-  return <div className="App">{arr}</div>;
+  let count=0
+  return (
+    <div>
+      <button
+      onClick={() => {
+        console.log(count)
+        count+=1
+      }}
+      >
+        Click Me
+
+      </button>
+    </div>
+  )
 }
