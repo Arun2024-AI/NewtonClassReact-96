@@ -132,19 +132,41 @@ import './style.css';
 
 
 
-export default function App() {
-  let count=0
-  return (
-    <div>
-      <button
-      onClick={() => {
-        console.log(count)
-        count+=1
-      }}
-      >
-        Click Me
+// export default function App() {
+//   let count=0
+//   return (
+//     <div>
+//       <button
+//       onClick={() => {
+//         console.log(count)
+//         count+=1
+//       }}
+//       >
+//         Click Me
 
-      </button>
+//       </button>
+//     </div>
+//   )
+// }
+
+export default function App(){
+  let count =0;
+  const incrementClickHandler = () =>{
+    count+=1
+    console.log(count);
+  };
+
+  const decrementClickHandler = () =>{
+    count-=1
+    console.log(count);
+}
+
+return (
+    <div>
+      <button onClick={incrementClickHandler}
+      >Increment</button>
+      <button onClick={decrementClickHandler}
+      >Decrement</button>
     </div>
-  )
+  );
 }
