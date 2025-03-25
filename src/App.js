@@ -100,13 +100,21 @@ import './style.css';
 
 
 
-export default function App() {
-  const students = ['s1', 's2', 's3'];
-  const studentselements = [];
-  for (let i = 0; i < students.length; i++) {
-    studentselements.push(<h1>{students[i]}</h1>);
-  }
+// export default function App() {
+//   const students = ['s1', 's2', 's3'];
+//   const studentselements = [];
+//   for (let i = 0; i < students.length; i++) {
+//     studentselements.push(<h1>{students[i]}</h1>);
+//   }
   
-  return <div>{studentselements}</div>;
+//   return <div>{studentselements}</div>;
 
+// }
+
+
+
+const arrOfstr = ['mango', 'orange', 'apple', 'hello'];
+export default function App() {
+  const arr = arrOfstr.map((str) => <h2>{str}</h2>);
+  return <div className="App">{arr}</div>;
 }
