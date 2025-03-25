@@ -152,28 +152,43 @@ import './style.css';
 
 
 
+// export default function App() {
+//   let count = 0;
+//   let intervalId = null;
+
+//   const startTimer = () => {
+//     if (!intervalId) {
+//       intervalId = setInterval(() => {
+//         count += 1;
+//         console.log(count);
+//       }, 1000);
+//     }
+//   };
+
+//   const stopTimer = () => {
+//     clearInterval(intervalId);
+//     intervalId = null;
+//   };
+
+//   return (
+//     <div>
+//       <button onClick={startTimer}>Start</button>
+//       <button onClick={stopTimer}>Stop</button>
+//     </div>
+//   );
+// }
+
+
+
 export default function App() {
-  let count = 0;
-  let intervalId = null;
-
-  const startTimer = () => {
-    if (!intervalId) {
-      intervalId = setInterval(() => {
-        count += 1;
-        console.log(count);
-      }, 1000);
-    }
-  };
-
-  const stopTimer = () => {
-    clearInterval(intervalId);
-    intervalId = null;
-  };
-
   return (
     <div>
-      <button onClick={startTimer}>Start</button>
-      <button onClick={stopTimer}>Stop</button>
+      <input
+        onChange={(event) => {
+          console.log(event.target.value);
+        }}
+        type="text"
+      />
     </div>
   );
 }
