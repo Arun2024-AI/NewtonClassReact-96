@@ -1,15 +1,15 @@
 import React from 'react';
 import './style.css';
 
-// export default function App() {
-//   const text = "NSTians"
-//   return (
-//     <div>
-//       <h1>Hello {text}</h1>
-//       <p>Start editing to see some magic happen :)</p>
-//     </div>
-//   );
-// }
+export default function App() {
+  const text = "NSTians"
+  return (
+    <div>
+      <h1>Hello {text}</h1>
+      <p>Start editing to see some magic happen :)</p>
+    </div>
+  );
+}
 
 // export default function App() {
 //   const isloggedin = "NSTians"
