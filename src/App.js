@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './style.css';
 
 // export default function App() {
@@ -151,6 +151,19 @@ import './style.css';
 
 
 
+// export default function App() {
+//   return (
+//     <div>
+//       <input
+//         onChange={(event) => {
+//           console.log(event.target.value);
+//         }}
+//         type="text"
+//       />
+//     </div>
+//   );
+// }
+
 
 // export default function App() {
 //   let count = 0;
@@ -181,14 +194,22 @@ import './style.css';
 
 
 export default function App() {
+  // let count = 0;
+  let [count, setCount] =useState(0)
+  const incrementClickHandle = () => {
+    setCount ((prev) => {
+      return prev + 1;
+    })
+  }
+
+  const decrementClickHandle = () => {
+
+  }
   return (
     <div>
-      <input
-        onChange={(event) => {
-          console.log(event.target.value);
-        }}
-        type="text"
-      />
+      <h1>{count}</h1>
+      <button onClick={incrementClickHandle}>Start</button>
+      <button onClick={decrementClickHandle}>Stop</button>
     </div>
   );
 }
