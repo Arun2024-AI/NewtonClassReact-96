@@ -203,6 +203,9 @@ export default function App() {
   }
 
   const decrementClickHandle = () => {
+    setCount((prev) => {
+      return prev-1
+    })
 
   }
   return (
