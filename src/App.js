@@ -211,8 +211,8 @@ export default function App() {
   return (
     <div>
       <h1>{count}</h1>
-      <button onClick={incrementClickHandle}>Start</button>
-      <button onClick={decrementClickHandle}>Stop</button>
+      <button onClick={incrementClickHandle}>Add</button>
+      <button onClick={decrementClickHandle}>Sub</button>
     </div>
   );
 }
