@@ -261,16 +261,109 @@ import './style.css';
 
 
 
+
+
+// export default function App() {
+//   const [text, setText] = useState('');
+//   const inputChangeHandler = function (event) {
+//     setText(event.target.value);
+//   };
+
+//   return (
+//     <div>
+//       <input onChange={inputChangeHandler} type="text" />
+//       <h1>{text}</h1>
+//     </div>
+//   );
+// }
+
+
+
+// export default function App() {
+//   const [num1, setNum1] = useState(0);
+//   const [num2, setNum2] = useState(0);
+//   const [sum, setSum] = useState(0);
+
+//   const calculateSum = () => {
+//     setSum(Number(num1) + Number(num2));
+//   };
+
+//   return (
+//     <div>
+//       <input 
+//         type="number" 
+//         onChange={(e) => setNum1(e.target.value)} 
+//       />
+
+      // {/* <br></br><br/> */}
+//       <input 
+//         type="number" 
+//         onChange={(e) => setNum2(e.target.value)} 
+//       />
+//       {/* <br></br><br/> */}
+//       <button onClick={calculateSum}>Calculate</button>
+//       <h1>Sum:{sum}</h1>
+//     </div>
+//   );
+// }
+
+
+
+
 export default function App() {
-  const [text, setText] = useState('');
-  const inputChangeHandler = function (event) {
-    setText(event.target.value);
+  const [num1, setNum1] = useState(0);
+  const [num2, setNum2] = useState(0);
+  const [result, setResult] = useState(0);
+  const [operation, setOperation] = useState("+");
+
+  const calculate = (op) => {
+    let res;
+    switch (op) {
+      case "+":
+        res = Number(num1) + Number(num2);
+        break;
+      case "-":
+        res = Number(num1) - Number(num2);
+        break;
+      case "*":
+        res = Number(num1) * Number(num2);
+        break;
+      case "/":
+        res = num2 !== 0 ? Number(num1) / Number(num2) : "Error";
+        break;
+      case "%":
+        res = num2 !== 0 ? Number(num1) % Number(num2) : "Error";
+        break;
+      default:
+        res = 0;
+    }
+    setOperation(op);
+    setResult(res);
   };
 
   return (
     <div>
-      <input onChange={inputChangeHandler} type="text" />
-      <h1>{text}</h1>
+      <input 
+        type="number" 
+        onChange={(e) => setNum1(e.target.value)} 
+      />
+      <br></br><br/>
+      <input 
+        type="number" 
+        onChange={(e) => setNum2(e.target.value)} 
+      />
+      <br></br><br/>
+      <button onClick={() => calculate("+")}>Add</button>
+      <br></br><br/>
+      <button onClick={() => calculate("-")}>Subtract</button>
+      <br></br><br/>
+      <button onClick={() => calculate("*")}>Multiply</button>
+      <br></br><br/>
+      <button onClick={() => calculate("/")}>Divide</button>
+      <br></br><br/>
+      <button onClick={() => calculate("%")}>Modulo</button>
+      <br></br><br/>
+      <h1>{num1} {operation} {num2} = {result}</h1>
     </div>
   );
 }
