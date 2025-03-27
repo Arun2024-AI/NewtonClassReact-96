@@ -242,15 +242,34 @@ import './style.css';
 // }
 
 
+// export default function App() {
+//   const [text, setText] = useState("");
+
+//   return (
+//     <div>
+//       <input 
+//         type="text" 
+//         onChange={(e) => setText(e.target.value)} 
+//       />
+//       <h1>{text}</h1>
+//     </div>
+//   );
+// }
+
+
+
+
+
+
 export default function App() {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
+  const inputChangeHandler = function (event) {
+    setText(event.target.value);
+  };
 
   return (
     <div>
-      <input 
-        type="text" 
-        onChange={(e) => setText(e.target.value)} 
-      />
+      <input onChange={inputChangeHandler} type="text" />
       <h1>{text}</h1>
     </div>
   );
