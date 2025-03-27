@@ -372,31 +372,47 @@ import './style.css';
 
 
 
+// export default function App() {
+//   const [left, setLeft] = useState(0);
+
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setLeft((prev) => (prev < 100 ? prev + 1 : prev));
+//     }, 1000);
+
+//     return () => clearInterval(interval); 
+//   }, []);
+
+//   return (
+//     <div
+//       style={{
+//         height: "50px",
+//         width: "50px",
+//         position: "fixed",
+//         top: 0,
+//         left: `${left}px`, 
+//         backgroundColor: "red",
+//       }}
+//     ></div>
+//   );
+// }
+
+
+
 export default function App() {
-  const [left, setLeft] = useState(0);
+  const [meassage,setMessage] =useState("Hello")
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setLeft((prev) => (prev < 100 ? prev + 1 : prev));
-    }, 1000);
+  const handleMessage =()=>{
+    setMessage("buttton was click")
 
-    return () => clearInterval(interval); 
-  }, []);
-
+  }
   return (
-    <div
-      style={{
-        height: "50px",
-        width: "50px",
-        position: "fixed",
-        top: 0,
-        left: `${left}px`, 
-        backgroundColor: "red",
-      }}
-    ></div>
-  );
+    <div>
+      <h1>{meassage}</h1>
+      <button onClick={handleMessage}></button>
+    </div>
+  )
 }
-
 
 
 
