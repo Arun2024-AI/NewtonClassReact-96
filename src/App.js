@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import './style.css';
 
 // export default function App() {
@@ -310,60 +310,93 @@ import './style.css';
 
 
 
-export default function App() {
-  const [num1, setNum1] = useState(0);
-  const [num2, setNum2] = useState(0);
-  const [result, setResult] = useState(0);
-  const [operation, setOperation] = useState("+");
+// export default function App() {
+//   const [num1, setNum1] = useState(0);
+//   const [num2, setNum2] = useState(0);
+//   const [result, setResult] = useState(0);
+//   const [operation, setOperation] = useState("+");
 
-  const calculate = (op) => {
-    let res;
-    switch (op) {
-      case "+":
-        res = Number(num1) + Number(num2);
-        break;
-      case "-":
-        res = Number(num1) - Number(num2);
-        break;
-      case "*":
-        res = Number(num1) * Number(num2);
-        break;
-      case "/":
-        res = num2 !== 0 ? Number(num1) / Number(num2) : "Error";
-        break;
-      case "%":
-        res = num2 !== 0 ? Number(num1) % Number(num2) : "Error";
-        break;
-      default:
-        res = 0;
-    }
-    setOperation(op);
-    setResult(res);
-  };
+//   const calculate = (op) => {
+//     let res;
+//     switch (op) {
+//       case "+":
+//         res = Number(num1) + Number(num2);
+//         break;
+//       case "-":
+//         res = Number(num1) - Number(num2);
+//         break;
+//       case "*":
+//         res = Number(num1) * Number(num2);
+//         break;
+//       case "/":
+//         res = num2 !== 0 ? Number(num1) / Number(num2) : "Error";
+//         break;
+//       case "%":
+//         res = num2 !== 0 ? Number(num1) % Number(num2) : "Error";
+//         break;
+//       default:
+//         res = 0;
+//     }
+//     setOperation(op);
+//     setResult(res);
+//   };
+
+//   return (
+//     <div>
+//       <input 
+//         type="number" 
+//         onChange={(e) => setNum1(e.target.value)} 
+//       />
+//       <br></br><br/>
+//       <input 
+//         type="number" 
+//         onChange={(e) => setNum2(e.target.value)} 
+//       />
+//       <br></br><br/>
+//       <button onClick={() => calculate("+")}>Add</button>
+//       <br></br><br/>
+//       <button onClick={() => calculate("-")}>Subtract</button>
+//       <br></br><br/>
+//       <button onClick={() => calculate("*")}>Multiply</button>
+//       <br></br><br/>
+//       <button onClick={() => calculate("/")}>Divide</button>
+//       <br></br><br/>
+//       <button onClick={() => calculate("%")}>Modulo</button>
+//       <br></br><br/>
+//       <h1>{num1} {operation} {num2} = {result}</h1>
+//     </div>
+//   );
+// }
+
+
+
+
+
+export default function App() {
+  const [left, setLeft] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLeft((prev) => (prev < 100 ? prev + 1 : prev));
+    }, 1000);
+
+    return () => clearInterval(interval); 
+  }, []);
 
   return (
-    <div>
-      <input 
-        type="number" 
-        onChange={(e) => setNum1(e.target.value)} 
-      />
-      <br></br><br/>
-      <input 
-        type="number" 
-        onChange={(e) => setNum2(e.target.value)} 
-      />
-      <br></br><br/>
-      <button onClick={() => calculate("+")}>Add</button>
-      <br></br><br/>
-      <button onClick={() => calculate("-")}>Subtract</button>
-      <br></br><br/>
-      <button onClick={() => calculate("*")}>Multiply</button>
-      <br></br><br/>
-      <button onClick={() => calculate("/")}>Divide</button>
-      <br></br><br/>
-      <button onClick={() => calculate("%")}>Modulo</button>
-      <br></br><br/>
-      <h1>{num1} {operation} {num2} = {result}</h1>
-    </div>
+    <div
+      style={{
+        height: "50px",
+        width: "50px",
+        position: "fixed",
+        top: 0,
+        left: `${left}px`, 
+        backgroundColor: "red",
+      }}
+    ></div>
   );
 }
+
+
+
+
