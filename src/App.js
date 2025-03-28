@@ -193,29 +193,25 @@ import './style.css';
 
 
 
-// export default function App() {
-//   // let count = 0;
-//   let [count, setCount] =useState(0)
-//   const incrementClickHandle = () => {
-//     setCount ((prev) => {
-//       return prev + 1;
-//     })
-//   }
+export default function App() {
+  let [count, setCount] = useState(0);
 
-//   const decrementClickHandle = () => {
-//     setCount((prev) => {
-//       return prev-1
-//     })
+  const incrementClickHandle = () => {
+    setCount((prev) => prev + 1);
+  };
 
-//   }
-//   return (
-//     <div>
-//       <h1>{count}</h1>
-//       <button onClick={incrementClickHandle}>Add</button>
-//       <button onClick={decrementClickHandle}>Sub</button>
-//     </div>
-//   );
-// }
+  const decrementClickHandle = () => {
+    setCount((prev) => prev - 1);
+  };
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={incrementClickHandle}>Add</button>
+      <button onClick={decrementClickHandle}>Sub</button>
+    </div>
+  );
+}
 
 
 
@@ -399,20 +395,20 @@ import './style.css';
 
 
 
-export default function App() {
-  const [meassage,setMessage] =useState("Hello")
+// export default function App() {
+//   const [meassage,setMessage] =useState("Hello")
 
-  const handleMessage =()=>{
-    setMessage("buttton was click")
+//   const handleMessage =()=>{
+//     setMessage("buttton was click")
 
-  }
-  return (
-    <div>
-      <h1>{meassage}</h1>
-      <button onClick={handleMessage}></button>
-    </div>
-  )
-}
+//   }
+//   return (
+//     <div>
+//       <h1>{meassage}</h1>
+//       <button onClick={handleMessage}></button>
+//     </div>
+//   )
+// }
 
 
 
