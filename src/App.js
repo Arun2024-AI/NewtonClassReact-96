@@ -395,20 +395,20 @@ export default function App() {
 
 
 
-export default function App() {
-  const [meassage,setMessage] =useState("Hello")
+// export default function App() {
+//   const [meassage,setMessage] =useState("Hello")
 
-  const handleMessage =()=>{
-    setMessage("buttton was click")
+//   const handleMessage =()=>{
+//     setMessage("buttton was click")
 
-  }
-  return (
-    <div>
-      <h1>{meassage}</h1>
-      <button onClick={handleMessage}></button>
-    </div>
-  )
-}
+//   }
+//   return (
+//     <div>
+//       <h1>{meassage}</h1>
+//       <button onClick={handleMessage}></button>
+//     </div>
+//   )
+// }
 
 
 
