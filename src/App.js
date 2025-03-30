@@ -193,25 +193,25 @@ import './style.css';
 
 
 
-export default function App() {
-  let [count, setCount] = useState(0);
+// export default function App() {
+//   let [count, setCount] = useState(0);
 
-  const incrementClickHandle = () => {
-    setCount((prev) => prev + 1);
-  };
+//   const incrementClickHandle = () => {
+//     setCount((prev) => prev + 1);
+//   };
 
-  const decrementClickHandle = () => {
-    setCount((prev) => prev - 1);
-  };
+//   const decrementClickHandle = () => {
+//     setCount((prev) => prev - 1);
+//   };
 
-  return (
-    <div>
-      <h1>{count}</h1>
-      <button onClick={incrementClickHandle}>Add</button>
-      <button onClick={decrementClickHandle}>Sub</button>
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <h1>{count}</h1>
+//       <button onClick={incrementClickHandle}>Add</button>
+//       <button onClick={decrementClickHandle}>Sub</button>
+//     </div>
+//   );
+// }
 
 
 
