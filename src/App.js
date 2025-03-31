@@ -1,5 +1,5 @@
-import React, {useState,useEffect} from 'react';
-import './style.css';
+// import React, {useState,useEffect} from 'react';
+// import './style.css';
 
 // export default function App() {
 //   const text = "NSTians"
@@ -395,20 +395,118 @@ import './style.css';
 
 
 
-export default function App() {
-  const [meassage,setMessage] =useState("Hello")
+// export default function App() {
+//   const [meassage,setMessage] =useState("Hello")
 
-  const handleMessage =()=>{
-    setMessage("buttton was click")
+//   const handleMessage =()=>{
+//     setMessage("buttton was click")
 
-  }
+//   }
+//   return (
+//     <div>
+//       <h1>{meassage}</h1>
+//       <button onClick={handleMessage}>Arun</button>
+//     </div>
+//   )
+// }
+
+
+
+import React, { useState } from "react";
+
+const ToDoApp = () => {
+  const [tasks, setTasks] = useState([]);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [search, setSearch] = useState("");
+  const [editIndex, setEditIndex] = useState(null);
+
+  const handleAddOrUpdateTask = () => {
+    if (!title.trim() || !description.trim()) return;
+    if (editIndex !== null) {
+      const updatedTasks = [...tasks];
+      updatedTasks[editIndex] = { title, description };
+      setTasks(updatedTasks);
+      setEditIndex(null);
+    } else {
+      setTasks([...tasks, { title, description }]);
+    }
+    setTitle("");
+    setDescription("");
+  };
+
+  const handleEditTask = (index) => {
+    setTitle(tasks[index].title);
+    setDescription(tasks[index].description);
+    setEditIndex(index);
+  };
+
+  const handleDeleteTask = (index) => {
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
+  };
+
+  const filteredTasks = tasks.filter(
+    (task) =>
+      task.title.toLowerCase().includes(search.toLowerCase()) ||
+      task.description.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
-    <div>
-      <h1>{meassage}</h1>
-      <button onClick={handleMessage}>Arun</button>
+    <div style={{ maxWidth: "400px", margin: "auto", textAlign: "center" }}>
+      <h2>To-Do App</h2>
+      <input
+        type="text"
+        placeholder="Search tasks..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
+      />
+      <input
+        type="text"
+        placeholder="Task Title..."
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
+      />
+      <textarea
+        placeholder="Task Description..."
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
+      />
+      <button onClick={handleAddOrUpdateTask} style={{ width: "100%", padding: "10px" }}>
+        {editIndex !== null ? "Update" : "Add"}
+      </button>
+      <ul style={{ listStyleType: "none", padding: 0, marginTop: "20px" }}>
+        {filteredTasks.map((task, index) => (
+          <li
+            key={index}
+            style={{
+              background: "#f4f4f4",
+              margin: "10px 0",
+              padding: "10px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <div>
+              <strong>{task.title}</strong>
+              <p>{task.description}</p>
+            </div>
+            <div>
+              <button onClick={() => handleEditTask(index)}>Edit</button>
+              <button onClick={() => handleDeleteTask(index)} style={{ marginLeft: "5px" }}>Delete</button>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
-  )
-}
+  );
+};
+
+export default ToDoApp;
 
 
 
