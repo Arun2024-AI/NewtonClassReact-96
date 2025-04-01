@@ -513,30 +513,97 @@ import './style.css';
 
 
 
-export default function App(){
-  // function sum(a,b) {
-  //   return a + b;
-  // }
+// export default function App(){
+//   // function sum(a,b) {
+//   //   return a + b;
+//   // }
 
-  function button(text){
-    return <button style={{backgroundColor:"red"}}>{text}</button>
-  }
+//   function button(text){
+//     return <button style={{backgroundColor:"red"}}>{text}</button>
+//   }
 
 
 
-return (
-  <div>
-    <Button text="click1"/>
-    <Button text="click2"/>
-    <Button text="click3"/>
-    {/* {button("click1")}
-    {button("click2")}
-    {button("click3")} */}
-  </div>
-)
+// return (
+//   <div>
+//     <Button text="click1"/>
+//     <Button text="click2"/>
+//     <Button text="click3"/>
+//     {/* {button("click1")}
+//     {button("click2")}
+//     {button("click3")} */}
+//   </div>
+// )
+// }
+
+// function Button({text}) {
+//   return <button style={{backgroundColor:"red"}}>{text}</button>
+// }
+
+
+
+// export default function App() {
+//   return (
+//     <div>
+//       <Card 
+//         imageUrl="https://www.w3schools.com/howto/img_avatar.png" 
+//         name="Arun" 
+//         jobtitle="Software Engineer" 
+//       />
+//     </div>
+//   );
+// }
+
+// function Card({ imageUrl, name, jobtitle }) {
+//   return (
+//     <div>
+//       <img src={imageUrl} alt={name} />
+//       <h1>{name}</h1>
+//       <p>{jobtitle}</p>
+//       <Button text="Message" onClick={() => alert("Message clicked")} />
+//       <Button text="Connect" onClick={() => alert("Connect clicked")} />
+//       <Button text="Follow" onClick={() => alert("Follow clicked")} />
+//     </div>
+//   );
+// }
+
+// function Button({ text, onClick }) {
+//   return <button onClick={onClick}>{text}</button>;
+// }
+
+
+
+
+export default function App() {
+  return (
+    <div>
+      <Card 
+        imageUrl="https://www.w3schools.com/howto/img_avatar.png" 
+        name="Arun" 
+        jobtitle="Software Engineer" 
+      />
+    </div>
+  );
 }
 
-function Button({text}) {
-  return <button style={{backgroundColor:"red"}}>{text}</button>
+function Card({ imageUrl, name, jobtitle }) {
+  return (
+    <div>
+      <img 
+        src={imageUrl} 
+        alt={name} 
+        style={{ width: '150px', height: '150px', borderRadius: '50%' }} 
+      />
+      <h1>{name}</h1>
+      <p>{jobtitle}</p>
+      <Button text="Message" onClick={() => alert("Message clicked")} />
+      <Button text="Connect" onClick={() => alert("Connect clicked")} />
+      <Button text="Follow" onClick={() => alert("Follow clicked")} />
+    </div>
+  );
+}
+
+function Button({ text, onClick }) {
+  return <button onClick={onClick}>{text}</button>;
 }
 
