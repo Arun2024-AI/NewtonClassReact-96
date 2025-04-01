@@ -522,16 +522,21 @@ export default function App(){
     return <button style={{backgroundColor:"red"}}>{text}</button>
   }
 
-sum(1,2);
 
 
 return (
   <div>
-    {button("click1")}
+    <Button text="click1"/>
+    <Button text="click2"/>
+    <Button text="click3"/>
+    {/* {button("click1")}
     {button("click2")}
-    {button("click3")}
+    {button("click3")} */}
   </div>
 )
+}
 
+function Button({text}) {
+  return <button style={{backgroundColor:"red"}}>{text}</button>
 }
 
