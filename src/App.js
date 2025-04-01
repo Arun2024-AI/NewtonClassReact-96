@@ -514,8 +514,12 @@ import './style.css';
 
 
 export default function App(){
-  function sum(a,b) {
-    return a + b;
+  // function sum(a,b) {
+  //   return a + b;
+  // }
+
+  function button(text){
+    return <button style={{backgroundColor:"red"}}>{text}</button>
   }
 
 sum(1,2);
@@ -523,9 +527,9 @@ sum(1,2);
 
 return (
   <div>
-    <button style={{backgroundColor:"red"}}>click1</button>
-    <button style={{backgroundColor:"red"}}>click2</button>
-    <button style={{backgroundColor:"red"}}>click3</button>
+    {button("click1")}
+    {button("click2")}
+    {button("click3")}
   </div>
 )
 
