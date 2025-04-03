@@ -574,36 +574,56 @@ import './style.css';
 
 
 
+// import React from 'react';
+// import './style.css';
+// import {Card} from './card.js';
+
+// export default function App() {
+//   return (
+//     <div>
+//       <Card
+//         imgurl="https://www.w3schools.com/howto/img_avatar.png" 
+//         name={'shivansh'}
+//         jobTitle={'student'}
+//       />
+//     </div>
+//   );
+// }
+
+
+
+// export function Card({ imgurl, name, jobTitle }) {
+//   return (
+//     <div>
+//       <img src={imgurl}  />
+//       <h1 >{name}</h1>
+//       <p>{jobTitle}</p>
+//       <Button text="message" clickHandler={() => {}} />
+//       <Button text="Connect" clickHandler={() => {}} />
+//       <Button text="Follow" clickHandler={() => {}} />
+//     </div>
+//   );
+// }
+
+// export function Button({ text, clickHandler }) {
+//   return <button onClick={clickHandler}>{text}</button>;
+// }
+
+
+
 export default function App() {
+  const [count ,setCount] = useState(0);              // count (s) -> 0, setCount -> update the state count 
+
+  let test= 0;         // test (v) -> 0 -> 1 // 1 -> 0
+  console.log(test);   // 0  // 0
   return (
     <div>
-      <Card 
-        imageUrl="https://www.w3schools.com/howto/img_avatar.png" 
-        name="Arun" 
-        jobtitle="Software Engineer" 
-      />
+      <h1>{count}</h1>
+      <button onClick={() => {
+        setCount((prev) => prev + 1);
+        test += 1
+      }}> Increment
+      </button>
     </div>
-  );
+  )
 }
-
-function Card({ imageUrl, name, jobtitle }) {
-  return (
-    <div>
-      <img 
-        src={imageUrl} 
-        alt={name} 
-        style={{ width: '150px', height: '150px', borderRadius: '50%' }} 
-      />
-      <h1>{name}</h1>
-      <p>{jobtitle}</p>
-      <Button text="Message" onClick={() => alert("Message clicked")} />
-      <Button text="Connect" onClick={() => alert("Connect clicked")} />
-      <Button text="Follow" onClick={() => alert("Follow clicked")} />
-    </div>
-  );
-}
-
-function Button({ text, onClick }) {
-  return <button onClick={onClick}>{text}</button>;
-}
-
