@@ -611,24 +611,33 @@ import './style.css';
 
 
 
-export default function App() {
-  const [count ,setCount] = useState(0);              // count (s) -> 0, setCount -> update the state count 
+// export default function App() {
+//   const [count ,setCount] = useState(0);              // count (s) -> 0, setCount -> update the state count 
 
-  let test= 0;         // test (v) -> 0 -> 1 // 1 -> 0
-  console.log(test);   // 0  // 0
+//   let test= 0;         // test (v) -> 0 -> 1 // 1 -> 0
+//   console.log(test);   // 0  // 0
+//   return (
+//     <div>
+//       <h1>{count}</h1>
+//       <button onClick={() => {
+//         setCount((prev) => prev + 1);
+//         test += 1
+//       }}> Increment
+//       </button>
+//     </div>
+//   )
+// }
+
+
+export default function App(){
+  const [count , section] =useState(0);
+  useEffect(() => {
+    console.log("hello");
+  });
   return (
     <div>
-      <h1>{count}</h1>
-      <button onClick={() => {
-        setCount((prev) => prev + 1);
-        test += 1
-      }}> Increment
-      </button>
+      <h1>Hello Stackblitz!</h1>
+      <button onClick={()=> setCount((prev)=> prev+1)}>increment</button>
     </div>
   )
-}
-
-
-
-
-``
+};
