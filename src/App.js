@@ -629,15 +629,45 @@ import './style.css';
 // }
 
 
+// export default function App(){
+//   const [count , section] =useState(0);
+//   const [user ,setUser] =useState("")
+
+//   useEffect(() => {
+//     console.log("hello");
+//   },[count,user]);
+//   return (
+//     <div>
+//       <h1>Hello Stackblitz!</h1>
+//       <button onClick={()=> setUser((prev)=> prev+1)}>increment</button>
+//     </div>
+//   )
+// };
+
+
 export default function App(){
-  const [count , section] =useState(0);
-  useEffect(() => {
-    console.log("hello");
-  });
+  const [show, setShow] = useState(true)
   return (
     <div>
-      <h1>Hello Stackblitz!</h1>
-      <button onClick={()=> setCount((prev)=> prev+1)}>increment</button>
+      {show && <Hello/>}
+      <button onClick={() => setShow(true)}>Show</button>
+      <button onClick={() => setShow(false)}>Hide</button>
     </div>
   )
-};
+}
+function Hello() {
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      console.log("Hello")
+    },1000);
+    console.log("component mounted");
+    return () => {
+      console.log("component unmounted");
+      clearInterval(intervalId)
+    }
+  }, [])
+  return <h1>Hello Newton</h1>
+}
+
+
+
