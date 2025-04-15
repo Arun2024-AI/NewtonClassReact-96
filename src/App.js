@@ -1,5 +1,6 @@
-import React, {useState,useEffect} from 'react';
-import './style.css';
+// import React, {useState,useEffect,useRef} from 'react';
+// import './style.css';
+// import { useRef } from 'react/cjs/react.production.min';
 
 // export default function App() {
 //   const text = "NSTians"
@@ -645,29 +646,82 @@ import './style.css';
 // };
 
 
-export default function App(){
-  const [show, setShow] = useState(true)
+
+
+// export default function App(){
+//   const [show, setShow] = useState(true)
+//   return (
+//     <div>
+//       {show && <Hello/>}
+//       <button onClick={() => setShow(true)}>Show</button>
+//       <button onClick={() => setShow(false)}>Hide</button>
+//     </div>
+//   )
+// }
+// function Hello() {
+//   useEffect(() => {
+//     const intervalId = setInterval(() => {
+//       console.log("Hello")
+//     },1000);
+//     console.log("component mounted");
+//     return () => {
+//       console.log("component unmounted");
+//       clearInterval(intervalId)
+//     }
+//   }, [])
+//   return <h1>Hello Newton</h1>
+// }
+
+
+
+
+// export default function App(){
+//   const h1ref = useRef();    //{current: {value}}
+//   const inputref =useRef();
+//   return <div>
+//     <h1 ref = {h1ref}>Hello</h1>
+//     <input onChange={() => 
+//     console.log(inputref.current.value)}/>
+//   </div>
+// }
+
+
+
+
+import React, { useRef } from "react";
+
+export default function App() {
+  const homeRef = useRef();
+  const aboutRef = useRef();
+  const contactRef = useRef();
+
+  const handleClick = (section) => {
+    // Hide all
+    homeRef.current.style.display = "none";
+    aboutRef.current.style.display = "none";
+    contactRef.current.style.display = "none";
+
+    // Show selected
+    if (section === "home") homeRef.current.style.display = "block";
+    if (section === "about") aboutRef.current.style.display = "block";
+    if (section === "contact") contactRef.current.style.display = "block";
+  };
+
   return (
     <div>
-      {show && <Hello/>}
-      <button onClick={() => setShow(true)}>Show</button>
-      <button onClick={() => setShow(false)}>Hide</button>
-    </div>
-  )
-}
-function Hello() {
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      console.log("Hello")
-    },1000);
-    console.log("component mounted");
-    return () => {
-      console.log("component unmounted");
-      clearInterval(intervalId)
-    }
-  }, [])
-  return <h1>Hello Newton</h1>
-}
+      <div className="buttons">
+        <button onClick={() => handleClick("home")}>Home</button>
+        <button onClick={() => handleClick("about")}>About</button>
+        <button onClick={() => handleClick("contact")}>Contact</button>
+      </div>
 
+      <div className="content">
+        <h1 ref={homeRef}>Home</h1>
+        <h1 ref={aboutRef} style={{ display: "none" }}>About</h1>
+        <h1 ref={contactRef} style={{ display: "none" }}>Contact</h1>
+      </div>
+    </div>
+  );
+}
 
 
